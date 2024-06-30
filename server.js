@@ -14,9 +14,18 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 
-// Basic route
-app.get('/', (req, res) => {
-    res.send('Welcome to the User Authentication Microservice');
+// Import routes
+const registerRoute = require('./auth/register');
+const loginRoute = require('./auth/login');
+const authMiddleware = require('./middleware/authMiddleware');
+
+// Use routes
+app.use('/api/users', registerRoute);
+app.use('/api/users', loginRoute);
+
+// Protected route example
+app.get('/api/protected', authMiddleware, (req, res) => {
+    res.send('This is a protected route');
 });
 
 // Start the server
