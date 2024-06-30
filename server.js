@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URI)
 const registerRoute = require('./auth/register');
 const loginRoute = require('./auth/login');
 const authMiddleware = require('./middleware/authMiddleware');
-const createProductRoute = requier('./product/createProduct');
+const createProductRoute = require('./product/createProduct');
 const getProductsRoute = require('./product/getProducts');
 const updateProductRoute = require('./product/updateProduct');
 const deleteProductRoute = require('./product/deleteProduct');
