@@ -26,7 +26,7 @@ app.use('/api/products', createProductRoute);
 app.use('/api/products', getProductsRoute);
 app.use('/api/products', updateProductRoute);
 app.use('/api/products', deleteProductRoute);
-
+app.use('/api/products', getProductRoute);
 // Protected route example
 app.get('/api/protected', authMiddleware, (req, res) => {
     res.send('This is a protected route');
